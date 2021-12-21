@@ -19,9 +19,21 @@ function compareTriplets(a, b) {
 }
 
 function aVeryBigSum(ar) {
-  let output = 0
+  let output = 0;
   for (let i = 0; i < ar.length; i++) {
     output += ar[i];
   }
   return output;
+}
+
+function diagonalDifference(arr) {
+  let primDiag = null;
+  let seconDiag = null;
+  let n = arr.length;
+
+  for (let i = 0; i < arr.length; i++) {
+    primDiag += arr[i][i];
+    seconDiag += arr[i][(n - 1) - i]
+  }
+  return Math.abs(primDiag - seconDiag);
 }
