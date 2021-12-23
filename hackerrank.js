@@ -37,3 +37,27 @@ function diagonalDifference(arr) {
   }
   return Math.abs(primDiag - seconDiag);
 }
+
+function plusMinus(arr) {
+  let posVal = 0;
+  let negVal = 0;
+  let zeroVal = 0;
+  let length = arr.length;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zeroVal++;
+    } else if (arr[i] > 0) {
+      posVal++;
+    } else if (arr[i] < 0) {
+      negVal++;
+    }
+  }
+  const posProport = posVal / length;
+  const negProport = negVal / length;
+  const zeroProport = zeroVal / length;
+
+  console.log(posProport.toFixed(6));
+  console.log(negProport.toFixed(6));
+  console.log(zeroProport.toFixed(6));
+}
