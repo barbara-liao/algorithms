@@ -61,3 +61,9 @@ function plusMinus(arr) {
   console.log(negProport.toFixed(6));
   console.log(zeroProport.toFixed(6));
 }
+
+function staircase(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log("#".repeat(i).padStart(n));
+  }
+}
