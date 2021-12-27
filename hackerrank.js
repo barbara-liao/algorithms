@@ -67,3 +67,17 @@ function staircase(n) {
     console.log("#".repeat(i).padStart(n));
   }
 }
+
+function miniMaxSum(arr) {
+  const sortedArr = arr.sort((a, b) => { return a - b })
+  const length = arr.length;
+  let min = null;
+  let max = null;
+  for (let i = 0; i < length - 1; i++) {
+    min += sortedArr[i];
+  }
+  for (let j = length - 1; j > length - 5; j--) {
+    max += sortedArr[j];
+  }
+  console.log(min, max);
+}
