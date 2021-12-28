@@ -81,3 +81,18 @@ function miniMaxSum(arr) {
   }
   console.log(min, max);
 }
+
+function birthdayCakeCandles(candles) {
+  let output = 1;
+  let lrgNum = candles[0];
+
+  for (let i = 1; i < candles.length; i++) {
+    if (candles[i] > lrgNum) {
+      lrgNum = candles[i];
+      output = 1;
+    } else if (candles[i] === lrgNum) {
+      output++;
+    }
+  }
+  return output;
+}
