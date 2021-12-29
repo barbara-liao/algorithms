@@ -96,3 +96,20 @@ function birthdayCakeCandles(candles) {
   }
   return output;
 }
+
+function timeConversion(s) {
+  const meridiem = s.slice(-2);
+  const militaryTime = s.slice(0, 8);
+  let arr = militaryTime.split(':');
+
+  if (meridiem === 'AM' && Number(arr[0]) === 12) {
+    arr[0] = '00';
+    return arr.join(':');
+  } else if (meridiem === 'AM' || (meridiem === 'PM' && Number(arr[0]) === 12)) {
+    return militaryTime;
+  } else if (meridiem === 'PM' && arr[0] !== 12) {
+    const newHour = Number(arr[0]) + 12
+    arr[0] = newHour;
+    return arr.join(':');
+  }
+}
