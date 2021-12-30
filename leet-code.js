@@ -25,3 +25,16 @@ function removeDuplicates(s) {
   }
   return arr.join('');
 };
+
+var twoSum = function (nums, target) {
+  const numsObj = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const firstNum = nums[i];
+    const neededNum = target - firstNum;
+    if (numsObj[neededNum] !== undefined) {
+      return [i, numsObj[neededNum]];
+    }
+    numsObj[firstNum] = i;
+  }
+};
