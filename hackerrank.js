@@ -113,3 +113,14 @@ function timeConversion(s) {
     return arr.join(':');
   }
 }
+
+function cipher(k, s) {
+  const xor = (x, y) => x === y ? '0' : '1';
+  const ans = new Array(s.length - k + 1);
+  ans[0] = s[0];
+  for (let i = 1; i < ans.length; i++) {
+    ans[i] = i < k ? xor(s[i], s[i - 1]) :
+      xor(xor(s[i], s[i - 1]), ans[i - k]);
+  }
+  return ans.join('');
+}
