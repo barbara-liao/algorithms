@@ -61,19 +61,36 @@ var longestCommonPrefix = function (strs) {
   return r;
 };
 
-function isValid(s) {
-  const left = [];
-  const legend = {
-    '(': ')',
-    '{': '}',
-    '[': ']'
-  };
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
-      left.push(s[i]);
-    } else if (legend[left.pop()] !== s[i]) {
+var checkAlmostEquivalent = function (word1, word2) {
+  let wordOneObj = {};
+  let wordTwoObj = {};
+  for (let i = 0; i < word1.length; i++) {
+    if (!wordOneObj[word1[i]]) {
+      wordOneObj[word1[i]] = 1;
+    } else {
+      wordOneObj[word1[i]]++;
+    }
+
+    if (!wordTwoObj[word2[i]]) {
+      wordTwoObj[word2[i]] = 1;
+    } else {
+      wordTwoObj[word2[i]]++;
+    }
+  }
+  for (let key in wordOneObj) {
+    if (!wordTwoObj[key]) {
+      wordTwoObj[key] = 0;
+    }
+  }
+  for (let key in wordTwoObj) {
+    if (!wordOneObj[key]) {
+      wordOneObj[key] = 0;
+    }
+  }
+  for (let key in wordOneObj) {
+    if (Math.abs(wordOneObj[key] - wordTwoObj[key]) > 3) {
       return false;
     }
   }
-  return left.length ? 0 : 1;
+  return true;
 };
