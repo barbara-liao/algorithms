@@ -94,3 +94,23 @@ var checkAlmostEquivalent = function (word1, word2) {
   }
   return true;
 };
+
+/*
+- create storage for output array
+- traverse through array
+- if the output array is less than n,
+    - push the array at i into the array
+    - push the array at i + n into the array
+- else
+    - return output
+*/
+var shuffle = function(nums, n) {
+    const output = [];
+    for (let i = 0; i < nums.length; i++) {
+      if (output.length < n * 2) {
+        output.push(nums[i]);
+        output.push(nums[i + n]);
+        }
+    }
+    return output;
+};
